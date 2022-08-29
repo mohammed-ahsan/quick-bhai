@@ -3,7 +3,7 @@ import React from "react";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 
-const RestaurentCard = ({
+const RestaurantCard = ({
   id,
   imgUrl,
   title,
@@ -35,4 +35,4 @@ const RestaurentCard = ({
   );
 };
 
-export default RestaurentCard;
+export default RestaurantCard;

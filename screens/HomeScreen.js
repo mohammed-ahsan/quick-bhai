@@ -40,7 +40,7 @@ const HomeScreen = () => {
       <View className="flex-row items-center Space-x-2 pb-2 mx-4">
         <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3 mr-2">
         <MagnifyingGlassIcon size={20} color="gray"/>
-        <TextInput placeholder="Restaurents and Cuisines" keyboardType="default"/>
+        <TextInput placeholder="Restaurants and Cuisines" keyboardType="default"/>
         </View>
         <AdjustmentsVerticalIcon color="#00CCBB"/>
       </View>
@@ -50,7 +50,7 @@ const HomeScreen = () => {
         {/*featured*/}
 <FeaturedRow id="123" title="Featured" description="Paid placements from our partners"/>
 <FeaturedRow id="1234" title="Tasty Discounts" description="Everyone's been enjoying juicy discounts"/>
-<FeaturedRow id="12345" title="Offers Near You!" description="Why not to support local restaurent tonight"/>
+<FeaturedRow id="12345" title="Offers Near You!" description="Why not to support local restaurant tonight"/>
 
 
 

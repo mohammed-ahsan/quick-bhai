@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
-import RestaurentCard from './RestaurentCard'
+import RestaurantCard from './RestaurantCard'
 
 const FeaturedRow = ({id,title,description}) => {
   return (
@@ -18,7 +18,7 @@ const FeaturedRow = ({id,title,description}) => {
       <ScrollView horizontal contentContainerStyle={{paddingHorizontal:15,}}
       showsHorizontalScrollIndicator={false}
       className="pt-4">
-      <RestaurentCard 
+      <RestaurantCard 
       id={123}
     imgUrl="https://reactnative.dev/img/tiny_logo.png"
     title="Sushi"
@@ -29,7 +29,7 @@ const FeaturedRow = ({id,title,description}) => {
     dishes="{[]}"
     long={20}
     lat={0}/>
-    <RestaurentCard 
+    <RestaurantCard 
       id={123}
     imgUrl="https://reactnative.dev/img/tiny_logo.png"
     title="Sushi"
@@ -40,7 +40,7 @@ const FeaturedRow = ({id,title,description}) => {
     dishes="{[]}"
     long={20}
     lat={0}/>
-    <RestaurentCard 
+    <RestaurantCard 
       id={123}
     imgUrl="https://reactnative.dev/img/tiny_logo.png"
     title="Sushi"
