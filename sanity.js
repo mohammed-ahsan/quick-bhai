@@ -1,8 +1,10 @@
-const sanityClient = require('@sanity/client')
+import sanityClient from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 const client = sanityClient({
   projectId: 'uf7g5p8y',
   dataset: 'production',
-  useCDn:true,
+  useCdn:true,
+  apiVersion:"2021-10-21"
   
 })
 

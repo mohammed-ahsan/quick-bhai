@@ -1,9 +1,25 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import RestaurantCard from './RestaurantCard'
+import sanityClient from "../sanity";
 
 const FeaturedRow = ({id,title,description}) => {
+const [restaurants,setRestaurants] = useState([])
+
+useEffect(()=>{
+  sanityClient.fetch(`*[_type=="featured" && _id==$id]
+  {...,restaurant[]->
+    {...,dishes[]->,
+    type->{name}
+  },
+}[0]`,
+{id}
+)
+.then((data)=>{setRestaurants(data?.restaurant)})
+},[])
+console.log(restaurants)
+
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
@@ -18,39 +34,21 @@ const FeaturedRow = ({id,title,description}) => {
       <ScrollView horizontal contentContainerStyle={{paddingHorizontal:15,}}
       showsHorizontalScrollIndicator={false}
       className="pt-4">
-      <RestaurantCard 
-      id={123}
-    imgUrl="https://reactnative.dev/img/tiny_logo.png"
-    title="Sushi"
-    rating={4.5}
-    genre="Japanese"
-    address="123 main"
-    short_description="Fugiat elit occaecat incididunt non minim anim ipsum cupidatat adipisicing veniam sunt ad."
-    dishes="{[]}"
-    long={20}
-    lat={0}/>
-    <RestaurantCard 
-      id={123}
-    imgUrl="https://reactnative.dev/img/tiny_logo.png"
-    title="Sushi"
-    rating={4.5}
-    genre="Japanese"
-    address="123 main"
-    short_description="Fugiat elit occaecat incididunt non minim anim ipsum cupidatat adipisicing veniam sunt ad."
-    dishes="{[]}"
-    long={20}
-    lat={0}/>
-    <RestaurantCard 
-      id={123}
-    imgUrl="https://reactnative.dev/img/tiny_logo.png"
-    title="Sushi"
-    rating={4.5}
-    genre="Japanese"
-    address="123 main"
-    short_description="Fugiat elit occaecat incididunt non minim anim ipsum cupidatat adipisicing veniam sunt ad."
-    dishes="{[]}"
-    long={20}
-    lat={0}/>
+
+
+      {restaurants?.map(restaurants => (<RestaurantCard
+      key={restaurants._id} 
+      id={restaurants._id}
+    imgUrl={restaurants.image}
+    title={restaurants.name}
+    rating={restaurants.rating}
+    genre={restaurants.type?.name}
+    address={restaurants.address}
+    short_description={restaurants.short_description}
+    dishes={restaurants.dishes}
+    long={restaurants.long}
+    lat={restaurants.lat}/>))}
+    
       </ScrollView>
 
     </View>
