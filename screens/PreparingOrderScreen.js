@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 const PreparingOrderScreen = () => {
   const navigation = useNavigation()
-  useEffect(()=>{setTimeout(()=>{navigation.navigate("Delivery")},5000)
+  useEffect(()=>{setTimeout(()=>{navigation.navigate("Delivery")},15000)
 },[])
   return (
     <SafeAreaView className="bg-green-400" >
